@@ -1,0 +1,102 @@
+Завдання 2.
+
+Для створення системи обліку навчальних аудиторій потрібно розробити клас Classroom. Клас Classroom представляє навчальну аудиторію за номером, місткістю та обладнанням.
+
+a. Метод __init__ класу Classroom повинен отримувати наступні параметри: аудиторія, номер аудиторії, місткість, наявне обладнання та коректно працювати при виконанні наступних дій:
+>>> classroom_016 = Classroom('016', 80, ['PC', 'projector', 'mic'])
+>>> classroom_016.number
+'016'
+>>> classroom_016.capacity
+80
+>>> classroom_016.equipment
+['PC', 'projector', 'mic']
+
+
+b. В класі Classroom, потрібно визначити метод __str__ який буде повертати рядок для представлення аудиторії в наступному форматі:
+>>> classroom_016 = Classroom('016', 80, ['PC', 'projector', 'mic'])
+>>> print(classroom_016)
+Classroom 016 has a capacity of 80 persons and has the following equipment: PC, projector, mic.
+
+c. В класі Classroom, потрібно визначити метод is_larger параметрами якого будуть два об’єкти класу Classroom і який буде повертати True тоді і тільки тоді якщо перша аудиторія вміщає більше студентів ніж друга. Наступний код демонструє використання цього методу:
+>>> classroom_016 = Classroom('016', 80, ['PC', 'projector', 'mic'])
+>>> classroom_007 = Classroom('007', 12, ['TV'])
+>>> classroom_016.is_larger(classroom_007)
+True
+
+
+d. В класі Classroom, потрібно визначити метод equipment_differences параметрами якого будуть два об’єкти класу Classroom і який буде повертати список обладнання першої аудиторії, яке відсутнє в другій аудиторії:
+>>> classroom_016.equipment_differences(classroom_007)
+['PC', 'mic', 'projector']
+
+
+e. В класі Classroom, потрібно визначити метод __repr__ який буде повертати рядок для представлення аудиторії в наступному форматі:
+>>> classroom_016 = Classroom('016', 80, ['PC', 'projector', 'mic'])
+>>> classroom_016
+Classroom('016', 80, ['PC', 'projector', 'mic'])
+>>> [classroom_016]
+[Classroom('016', 80, ['PC', 'projector', 'mic'])]
+
+Завдання 3.
+
+Реалізуйте клас AcademicBuilding, для представлення навчального корпусу за адресою і списком аудиторій. Клас AcademicBuilding повинен використовувати клас Classroom. Якщо клас Classroom визначено в іншому модулі то для його використання потрібно здійснити його імпорт.
+
+
+a. Метод __init__ класу AcademicBuilding повинен приймати три параметри: навчальний корпус, його адресу та список об’єктів Classroom. Для успішної реалізації цього класу розгляньте приклади його використання:
+>>> classroom_016 = classroom.Classroom('016', 80, ['PC', 'projector', 'mic'])
+>>> classroom_007 = classroom.Classroom('007', 12, ['TV'])
+>>> classroom_008 = classroom.Classroom('008', 25, ['PC', 'projector'])
+>>> classrooms = [classroom_016, classroom_007, classroom_008]
+>>> building = AcademicBuilding('Kozelnytska st. 2a', classrooms)
+>>> building.address
+'Kozelnytska st. 2a'
+>>> for room in building.classrooms:
+... print(room)
+Classroom 016 has a capacity of 80 persons and has the following equipment: PC, projector, mic.
+Classroom 007 has a capacity of 12 persons and has the following equipment: TV.
+Classroom 008 has a capacity of 25 persons and has the following equipment: PC, projector
+
+
+b. В класі AcademicBuilding, потрібно визначити метод total_equipment параметром якого буде об’єкт класу AcademicBuilding і який буде повертати список обладнання, яке наявне в навчальному корпусі. Для успішної реалізації цього методу розгляньте приклад його використання:
+
+>>> classrooms = [classroom_016, classroom_007, classroom_008]
+>>> building = AcademicBuilding('Kozelnytska st. 2a', classrooms)
+>>> building.total_equipment()
+[('PC', 2), ('TV', 1), ('mic', 1), ('projector', 2)]
+
+
+c. В класі AcademicBuilding, потрібно визначити метод __str__ який буде повертати рядок для представлення навчального корпусу:
+>>> classrooms = [classroom_016, classroom_007, classroom_008]
+>>> building = AcademicBuilding('Kozelnytska st. 2a', classrooms)
+>>> print(building)
+Kozelnytska st. 2a
+Classroom 016 has a capacity of 80 persons and has the following equipment: PC, projector, mic.
+Classroom 007 has a capacity of 12 persons and has the following equipment: TV.
+Classroom 008 has a capacity of 25 persons and has the following equipment: PC, projector.
+Завдання 4.
+
+Реалізуйте клас Triangle для представлення трикутника за його вершинами. Для визначення методів класу Triangle потрібно буде скористатися класами Point та можливо Line. Якщо ці класи визначено в інших модулях то для їх використання потрібно здійснити їх імпорт.
+
+
+a. Метод __init__ класу Triangle повинен приймати чотири параметри: трикутник та три вершини (об’єкти класу Point). Для успішної реалізації цього класу розгляньте приклад його використання:
+
+>>> triangle = Triangle(point.Point(1,1), point.Point(3,1), point.Point(2,3))
+
+b. В класі Triangle, потрібно визначити метод is_triangle. Для успішної реалізації цього методу розгляньте приклад його використання:
+
+>>> triangle = Triangle(point.Point(1,1), point.Point(3,1), point.Point(2,3))
+>>> triangle.is_triangle()
+True
+
+
+c. В класі Triangle, потрібно визначити метод perimeter. Для успішної реалізації цього методу розгляньте приклад його використання:
+
+>>> triangle = Triangle(point.Point(1,1), point.Point(3,1), point.Point(2,3))
+>>> triangle.perimeter()
+6.47213595499958
+
+
+d. В класі Triangle, потрібно визначити метод area. Для успішної реалізації цього методу розгляньте приклад його використання:
+
+>>> triangle = Triangle(point.Point(1,1), point.Point(3,1), point.Point(2,3))
+>>> triangle.area()
+2.0

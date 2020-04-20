@@ -1,0 +1,57 @@
+Завдання 1.
+Реалізуйте класи Building та House. Клас Building повинен бути батьківським класом для класу House. Клас Building представляє споруду за її адресою. Клас House представляє житловий будинок за його адресою та списком квартир.
+
+a. Метод __init__ класу Building потребує два параметри: споруду та адресу.
+b. Метод __init__ класу House потребує три параметри: житловий будинок, адресу та список квартир.
+c. Внесіть зміни в реалізацію класу AcademicBuilding (попередня лаб. робота) для того, щоб цей клас також був нащадком класу Building та успадковував атрибут address від цього класу.
+
+Завдання 2.
+
+Розробити класи Котик та Тварина. При реалізації класу потрібно використовувати елементи об’єктно-орієнтованого програмування. Наприклад, функцію super() або, якщо потрібно, перезавантаження методів. Реалізація цих класів повинна забезпечувати коректне виконання наступного коду:
+
+animal1 = Animal("chordata", "mammalia")
+
+assert(animal1.phylum == "chordata")
+
+assert(animal1.clas == "mammalia")
+
+assert(str(animal1) == "<animal class is mammalia>")
+
+animal2 = Animal("chordata", "birds")
+
+assert(not (animal1 == animal2))
+
+cat1 = Cat("chordata", "mammalia", "felis")
+
+assert(cat1.sound() == "Meow")
+
+assert(cat1.genus == "felis")
+
+assert(isinstance(cat1, Animal))
+
+assert(str(cat1) == "<This felis animal class is mammalia>")
+
+
+Розробити класи Стілець та Меблі. При реалізації класів потрібно використовувати елементи об’єктно-орієнтованого програмування. Наприклад, функцію super() або, якщо потрібно, перезавантаження методів. Реалізація цих класів повинна забезпечувати коректне виконання наступного коду:
+
+furniture1 = Furniture("empire", "bedroom")
+
+furniture2 = Furniture("modern", "bathroom")
+
+assert(not (furniture1 == furniture2))
+
+assert(furniture1.style == "empire")
+
+assert(furniture1.assign == "bedroom")
+
+assert(str(furniture1) == "<furniture style is empire>")
+
+chair1 = Chair("empire", "bedroom", "armchair")
+
+assert(chair1.tipe == "armchair")
+
+assert(isinstance(chair1, Furniture))
+
+assert(str(chair1) == "<This armchair furniture style is empire>")
+
+assert(chair1.get_assign() == "bedroom")

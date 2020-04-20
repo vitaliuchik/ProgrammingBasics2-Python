@@ -1,0 +1,1 @@
+I think I don't understand task correctly, so I realize some simple chess classes.
